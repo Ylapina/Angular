@@ -16,6 +16,20 @@ import { VendorCreateComponent } from './feature/vendor/vendor-create/vendor-cre
 import { UserEditComponent } from './feature/user-edit/user-edit.component';
 import { UserDetailComponent } from './feature/user-detail/user-detail.component';
 
+import { ProductService } from './service/product.service';
+
+import { SortPipe } from './Pipe/sort.pipe';
+import { ProductListComponent } from './feature/product/product-list/product-list.component';
+import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
+import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
+import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
+import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.component';
+import { VendorDetailComponent } from './feature/vendor/vendor-detail/vendor-detail.component';
+import { PurchaseRequestCreateComponent } from './feature/pr/purchase-request-create/purchase-request-create.component';
+import { PurchaseRequestDetailComponent } from './feature/pr/purchase-request-detail/purchase-request-detail.component';
+import { PurchaseRequestEditComponent } from './feature/pr/purchase-request-edit/purchase-request-edit.component';
+import { PurchaseRequestListComponent } from './feature/pr/purchase-request-list/purchase-request-list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +39,18 @@ import { UserDetailComponent } from './feature/user-detail/user-detail.component
     VendorListComponent,
     VendorCreateComponent,
     UserEditComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    SortPipe,
+    ProductListComponent,
+    ProductCreateComponent,
+    ProductDetailComponent,
+    ProductEditComponent,
+    VendorEditComponent,
+    VendorDetailComponent,
+    PurchaseRequestCreateComponent,
+    PurchaseRequestDetailComponent,
+    PurchaseRequestEditComponent,
+    PurchaseRequestListComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +60,8 @@ import { UserDetailComponent } from './feature/user-detail/user-detail.component
   ],
   providers: [
     UserService,
-    VendorService
+    VendorService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })
