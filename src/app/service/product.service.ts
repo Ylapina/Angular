@@ -14,9 +14,9 @@ export class ProductService {
   list():Observable <JsonResponse>{
     return this.http.get(url) as Observable<JsonResponse>;
   }
-  create (user:Product): Observable <any> {
-    console.log("productsvc.create...");
-    return this.http.post(url, Product) as Observable <any>;
+  create (pdt:Product): Observable <any> {
+    console.log("productsvc.create...", pdt);
+    return this.http.post(url, pdt) as Observable <any>;
   }
 
   get(id: string): Observable<JsonResponse> {
@@ -24,8 +24,8 @@ export class ProductService {
     return this.http.get(url+id) as Observable<JsonResponse>;
   }
 
-  edit(user: Product): Observable<any> {
-		return this.http.put(url, Product) as Observable<any>;
+  edit(pdt: Product): Observable<any> {
+		return this.http.put(url, pdt) as Observable<any>;
   }
 
   delete(id: number): Observable<JsonResponse> {

@@ -17,11 +17,13 @@ export class VendorService {
   }
 
   create(vendor: Vendor): Observable<any> {
-    return this.http.post(url, vendor) as Observable<JsonResponse>;
+    
+    return this.http.post(url, vendor) as Observable<any>;
   }
 
   edit(vendor: Vendor): Observable<any> {
-    return this.http.put(url, vendor) as Observable<JsonResponse>;
+    console.log("vendorsvc.edit.. id",vendor);
+    return this.http.put(url, vendor) as Observable<any>;
   }
 
   get(id: string): Observable<JsonResponse> {

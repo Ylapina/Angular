@@ -7,13 +7,19 @@
 	<p *ngIf='!product'>Loading...</p>
 	<div *ngIf='product'>
 
+    
+
     <div class="form-group row">
-      <label class='col-form-label col-sm-2' for="vendor">Vendor:</label>
-      <input [(ngModel)]='product.vendor' name = 'Vendor' type="text" class="form-control col-sm-6"
-        id="vendor" aria-describedby="vendorHelp" placeholder="Vendor">
-      <small id="vendorHelp" class="form-text text-muted col-sm-2">Vendor</small>
+			<label class='col-form-label col-sm-2' for="vendor">Vendor:</label>
+			<div class='col-sm-6 select-list'>
+          <select [(ngModel)]='pdt.vendor.id' [compareWith]='compareFn' class='form-control' name='Vendor' id='product-Vendor'>
+              <option *ngFor="let vendor of vendors" [ngValue]="vendor.id" [selected]="vendor.id == pdt.vendor.id">{{vendor.name}}</option>
+            </select>
     </div>
-    <div class="form-group row">
+  </div>
+
+
+<div class="form-group row">
       <label class='col-form-label col-sm-2' for="partNumber">Part Number:</label>
       <input [(ngModel)]='product.partNumber' name = 'PartNumber' type="text" class="form-control col-sm-6"
         id="partNumber" aria-describedby="partNumberHelp" placeholder="PartNumber">
@@ -44,7 +50,7 @@
       <small id="photopathHelp" class="form-text text-muted col-sm-2">Photopath</small>
     </div>
 		<div class='form-group'>
-			<button (click)='edit()' class='btn btn-primary'>Update</button>
+			<button (click)='change()' class='btn btn-primary'>Update</button>
 		</div>
 	</div>
 </div>

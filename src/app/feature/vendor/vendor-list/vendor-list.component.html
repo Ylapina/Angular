@@ -10,12 +10,12 @@
 <p *ngIf='!vendors'>Loading ...</p>
 <table class="table table-sm" *ngIf='vendors'>
   <tr>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="SortBy('Id')"><u>Id</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="SortBy('Code')"><u>Vendor Code</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="SortBy('Name')"><u>Name</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="SortBy('Address')"><u>Address</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="SortBy('PhoneNumber')"><u>Phone Number</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="SortBy('email')"><u>Email Address</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('Id')"><u>Id</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('Code')"><u>Vendor Code</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('Name')"><u>Name</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('Address')"><u>Address</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('PhoneNumber')"><u>Phone Number</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('Email')"><u>Email Address</u></a></th>
     <th class="table-secondary">Approved</th>
     <th class="table-secondary">Action</th>
   </tr>
@@ -28,8 +28,8 @@
     <td>{{vendor.email}}</td>
     <td>{{vendor.preApproved?"Yes":"No"}}</td>
     <td class='actions'>
-      <img src='assets/details.png' width='20' height='20' title='Detail'>
-      <img src='assets/pencil-icon.png' width='20' height='20' title='Edit'>
+        <a routerLink='/vendor/detail/{{vendor.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
+        <a routerLink='/vendor/edit/{{vendor.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
     </td>
   </tr> 
 </table>

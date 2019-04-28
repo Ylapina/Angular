@@ -1,3 +1,6 @@
+import { JsonResponse } from './../../../model/json-response';
+import { PurchaseRequestService } from './../../../service/purchase-request.service';
+import { PurchaseRequest } from './../../../model/purchase-request.class';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PurchaseRequestListComponent implements OnInit {
 
-  constructor() { }
+  jr: JsonResponse;
+  purchaserequests: PurchaseRequest[];
+  title: string = "Purchase Request List";
+
+  constructor(private purchaseRequestSvc: PurchaseRequestService) { }
 
   ngOnInit() {
+    this.purchaseRequestSvc.list().subscribe(jresp => {
+        this.jr = jresp;
+        this.purchaserequests = this.jr.data as PurchaseRequest[];
+        console.log(this.purchaserequests);
+      });
   }
 
 }

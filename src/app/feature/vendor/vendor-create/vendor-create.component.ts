@@ -8,9 +8,10 @@ import { VendorService } from '../../../service/vendor.service';
   templateUrl: './vendor-create.component.html',
   styleUrls: ['./vendor-create.component.css']
 })
+
 export class VendorCreateComponent implements OnInit {
   title = 'Vendor Create';
-  vendor: Vendor = new Vendor(0, '', '', '', '', '', '', '', '', true);
+  vendor: Vendor = new Vendor();
 
   create() {
     this.vendorSvc.create(this.vendor).subscribe(jr => {

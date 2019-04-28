@@ -29,6 +29,8 @@ import { PurchaseRequestCreateComponent } from './feature/pr/purchase-request-cr
 import { PurchaseRequestDetailComponent } from './feature/pr/purchase-request-detail/purchase-request-detail.component';
 import { PurchaseRequestEditComponent } from './feature/pr/purchase-request-edit/purchase-request-edit.component';
 import { PurchaseRequestListComponent } from './feature/pr/purchase-request-list/purchase-request-list.component';
+import { UserLoginComponent } from './feature/user/user-login/user-login.component';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { PurchaseRequestListComponent } from './feature/pr/purchase-request-list
     PurchaseRequestCreateComponent,
     PurchaseRequestDetailComponent,
     PurchaseRequestEditComponent,
-    PurchaseRequestListComponent
+    PurchaseRequestListComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,

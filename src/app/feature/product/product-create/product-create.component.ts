@@ -4,7 +4,7 @@ import { VendorService } from 'src/app/service/vendor.service';
 import { Product } from 'src/app/model/product.class';
 import { JsonResponse } from 'src/app/model/json-response';
 import {Vendor} from 'src/app/model/vendor.class'
-import { Router, ActivatedRoute, ParamMap} from '@angular/router';
+import { Router } from '@angular/router';
 
 
 
@@ -16,25 +16,33 @@ import { Router, ActivatedRoute, ParamMap} from '@angular/router';
 })
 
 export class ProductCreateComponent implements OnInit {
-  title = 'Product Create';
-  vendor: Vendor = new Vendor(0, '', 'Loading...', '', '', '', '', '', '', true);
-  product: Product = new Product(0, this.vendor, '', '', 0, '', '');
-  vendors: Vendor[] = [this.vendor];
+  title: string = 'Product Create';
 
-  create() {
-    this.prodSvc.create(this.product).subscribe(jr => {
-      this.router.navigate(['/product/list']);
-      this.product = jr.data as Product;
-      console.log(this.product);
-    });
-  }
+  jr: JsonResponse;
 
-  constructor(private prodSvc: ProductService, private vndrSvc: VendorService, private router: Router) { }
+  product: Product = new Product();	
+  vendor: Vendor = new Vendor(0,'','Loading...','','','','','','',true);
+  // add a bogus 'loading...' vendor to display in list until loaded
+  vendors: Vendor[]= [this.vendor];
+
+  constructor(private productSvc: ProductService,
+              private vendorSvc: VendorService,
+              private router: Router) { }
 
   ngOnInit() {
-    this.vndrSvc.list().subscribe(jr => {
-      this.vendors = jr.data as Vendor[];
-    });
+    this.vendorSvc.list()
+      .subscribe(jresp => {
+        this.jr = jresp as JsonResponse;
+        this.vendors = this.jr.data as Vendor[];
+      });
   }
 
+  create () {
+    console.log("product create component create method...",this.product);
+    this.productSvc.create(this.product)
+      .subscribe(jresp => {
+        this.jr = jresp;
+        this.router.navigate(['/product/list']);
+    });
+  }
 }

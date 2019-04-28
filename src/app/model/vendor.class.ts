@@ -10,8 +10,8 @@ export class Vendor {
     email: string;
     isPreApproved: boolean;
   
-    constructor(id: number, code: string, name: string, address: string, city: string, state: string, zip: string, 
-                phoneNumber: string, email: string, isPreApproved: boolean) {
+    constructor(id: number=0, code: string='', name: string='', address: string='', city: string='', state: string='', zip: string='', 
+                phoneNumber: string='', email: string='', isPreApproved: boolean=true) {
       this.id = id;
       this.code = code;
       this.name = name;

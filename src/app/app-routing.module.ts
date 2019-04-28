@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import{UserLoginComponent} from './feature/user/user-login/user-login.component';
 import { UserListComponent } from './feature/user/user-list/user-list.component';
 import { UserCreateComponent } from './feature/user/user-create/user-create.component';
 import { UserEditComponent } from './feature/user-edit/user-edit.component';
@@ -16,9 +17,14 @@ import { ProductCreateComponent } from './feature/product/product-create/product
 import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
 import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
 
+import { PurchaseRequestDetailComponent } from './feature/pr/purchase-request-detail/purchase-request-detail.component';
+import { PurchaseRequestCreateComponent } from './feature/pr/purchase-request-create/purchase-request-create.component';
+import { PurchaseRequestListComponent } from './feature/pr/purchase-request-list/purchase-request-list.component';
+import { PurchaseRequestEditComponent } from './feature/pr/purchase-request-edit/purchase-request-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/user/list', pathMatch: 'full' },
+  { path: 'user/login', component: UserLoginComponent},
   { path: 'user/list', component: UserListComponent },
   { path: 'user/create', component: UserCreateComponent },
   { path: 'user/edit/:id', component: UserEditComponent},
@@ -27,9 +33,9 @@ const routes: Routes = [
   
   { path: 'vendor/list', component: VendorListComponent },
   { path: 'vendor/create', component: VendorCreateComponent },
-  {path:  'vendor/edit/:id', component: VendorEditComponent},
-  {path:  'vendor/detail/:id', component: VendorDetailComponent},
-  {path:  'vendor/remove/:id', component: VendorDetailComponent},
+  { path:  'vendor/edit/:id', component: VendorEditComponent},
+  { path:  'vendor/detail/:id', component: VendorDetailComponent},
+  { path:  'vendor/remove/:id', component: VendorDetailComponent},
 
 
   { path: 'product/list', component: ProductListComponent },
@@ -37,6 +43,12 @@ const routes: Routes = [
   { path: 'product/edit/:id', component: ProductEditComponent},
   { path: 'product/detail/:id',component:ProductDetailComponent},
   { path: 'product/remove/:id',component:ProductDetailComponent},
+
+  { path:'purchaserequest/list', component: PurchaseRequestListComponent},
+  { path:'purchaserequest/create', component: PurchaseRequestCreateComponent},
+  { path:'purchaserequest/edit/:id', component: PurchaseRequestEditComponent},
+  { path:'purchaserequest/detail/:id', component: PurchaseRequestDetailComponent},
+  { path:'purchaserequest/remove/:id', component: PurchaseRequestDetailComponent},
   
   { path: '**', component: UserListComponent }
 

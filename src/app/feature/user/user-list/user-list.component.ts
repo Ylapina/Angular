@@ -14,6 +14,7 @@ export class UserListComponent implements OnInit {
   title:string="User List";
   sortCriteria: string="username";
   sortOrder:string="asc";//or anth else for
+  
   constructor(private userSvc: UserService) { }
 
   ngOnInit() {

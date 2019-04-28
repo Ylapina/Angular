@@ -13,8 +13,8 @@ photoPass:string;
 
 
 
-constructor (id:number,vendor:Vendor,partNumber:string,name:string,
-  price:number,unit:string,photoPass:string)
+constructor (id:number=0,vendor:Vendor=null,partNumber:string='',name:string='',
+  price:number=0,unit:string='',photoPass:string='')
   {
     this.id=id;
     this.vendor=vendor;

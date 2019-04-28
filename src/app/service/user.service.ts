@@ -13,6 +13,10 @@ export class UserService {
   list():Observable <JsonResponse>{
     return this.http.get(url) as Observable<JsonResponse>;
   }
+  login(user:User):Observable<JsonResponse>{
+    return this.http.post(url+ "authenticate",user) as Observable <JsonResponse>;
+  }
+
   create (user:User): Observable <any> {
     console.log("usersvc.create...");
     return this.http.post(url, user) as Observable <any>;

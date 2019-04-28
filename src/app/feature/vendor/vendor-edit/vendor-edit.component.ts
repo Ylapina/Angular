@@ -30,11 +30,12 @@ export class VendorEditComponent implements OnInit {
         this.jr = jrresp;
         console.log("1");
         this.vendor = this.jr.data as Vendor; 
-        console.log("user",this.vendor);
+        console.log("vendor",this.vendor);
       });
   }
 
   edit () {
+    console.log("vendor edit component");
     this.vendorSvc.edit(this.vendor)
       .subscribe(resp => {
         this.resp = resp;
