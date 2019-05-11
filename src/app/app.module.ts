@@ -30,6 +30,14 @@ import { PurchaseRequestDetailComponent } from './feature/pr/purchase-request-de
 import { PurchaseRequestEditComponent } from './feature/pr/purchase-request-edit/purchase-request-edit.component';
 import { PurchaseRequestListComponent } from './feature/pr/purchase-request-list/purchase-request-list.component';
 import { UserLoginComponent } from './feature/user/user-login/user-login.component';
+import { PrliLinesComponent } from './feature/prli/prli-lines/prli-lines.component';
+import {PurchaseRequestService }from 'src/app/service/purchase-request.service';
+import {SystemService} from 'src/app/service/system.service';
+import { PurchaseRequestLineItemService } from 'src/app/service/purchase-request-line-item.service';
+import { PurchaseRequestReviewComponent } from './feature/pr/purchase-request-review/purchase-request-review.component';
+import { PurchaseRequestApproveComponent } from './feature/pr/purchase-request-approve/purchase-request-approve.component';
+import { PrliEditComponent } from './feature/prli/prli-edit/prli-edit.component';
+import { PrliCreateComponent } from './feature/prli/prli-create/prli-create.component';
 
 
 @NgModule({
@@ -53,7 +61,13 @@ import { UserLoginComponent } from './feature/user/user-login/user-login.compone
     PurchaseRequestDetailComponent,
     PurchaseRequestEditComponent,
     PurchaseRequestListComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    PrliLinesComponent,
+    PurchaseRequestReviewComponent,
+    PurchaseRequestApproveComponent,
+    PrliEditComponent,
+    PrliCreateComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -64,7 +78,10 @@ import { UserLoginComponent } from './feature/user/user-login/user-login.compone
   providers: [
     UserService,
     VendorService,
-    ProductService
+    ProductService,
+    PurchaseRequestService,
+    PurchaseRequestLineItemService,
+    SystemService
   ],
   bootstrap: [AppComponent]
 })

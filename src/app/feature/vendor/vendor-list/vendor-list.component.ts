@@ -23,8 +23,7 @@ export class VendorListComponent implements OnInit {
       this.jr=Jresp;
       this.vendors=this.jr.data as Vendor[];
       console.log(this.vendors);
-      }
-      );
+    });
       
 
       }

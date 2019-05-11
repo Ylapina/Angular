@@ -1,0 +1,57 @@
+<app-menu></app-menu>
+
+<div class='component-content'>
+  <div class=''>
+    <div class='lefthalf'>
+      <span class='component-title'>[{{title}}]</span>
+    </div>
+  </div>
+  <table class="table table-sm" *ngIf='pr'>
+    <tr>
+      <th class="table-secondary font-weight-bold">Id</th>
+      <th class="table-secondary font-weight-bold">Description</th>
+      <th class="table-secondary font-weight-bold">Status</th>
+      <th class="table-secondary font-weight-bold">Total</th>
+     
+    </tr>
+    <tr>
+      <td>{{ pr.id }}</td>
+      <td>{{ pr.description }}</td>
+      <td>{{ pr.status }}</td>
+      <td>{{ pr.total }}</td>
+     
+    </tr>
+  </table>
+  <div class='lefthalf' *ngIf='pr'>
+    <span class='component-title'>[Lines]</span>
+  </div>
+  <p *ngIf='!prlis'>Loading...</p>
+  <table class="table table-sm" *ngIf='prlis'>
+    <tr>
+      <th class="table-secondary font-weight-bold">Id</th>
+      <th class="table-secondary font-weight-bold">Product</th>
+      <th class="table-secondary font-weight-bold">Quantity</th>
+      <th class="table-secondary font-weight-bold">Price</th>
+      <th class="table-secondary font-weight-bold">Line Total</th>
+    </tr>
+    <tr *ngFor='let prli of prlis'>
+      <td>{{ prli.id }}</td>
+      <td>{{ prli.product.name }}</td>
+      <td>{{ prli.quantity }}</td>
+      <td>{{ prli.product.price }}</td>
+      <td>{{ prli.quantity*prli.product.price}}</td>
+      
+    </tr>
+    <tr>
+      <td colspan="4">
+        <button (click)="approve()" class='btn btn-primary' title='Submit' style='margin-right: 5px'>Approve</button>
+        <button *ngIf='pr.reasonForRejection != "" || !pr.reasonForRejection == null' (click)="reject()"
+          class='btn btn-danger' title='Reject' style='margin-right: 5px'>Reject</button>
+        <button *ngIf='pr.reasonForRejection == "" || pr.reasonForRejection == null' disabled
+          class='btn btn-danger' title='Reject' style='margin-right: 5px'>Reject</button>
+        
+        <input [(ngModel)]='pr.reasonForRejection' type="text" size='50%' placeholder="Reason For Rejection">
+      </td>
+    </tr>
+  </table>
+</div>

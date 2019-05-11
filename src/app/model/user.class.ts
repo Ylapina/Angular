@@ -6,12 +6,12 @@ export class User{
     lastName:string;
     phoneNumber:string;
     email:string;
-    isreviewer:boolean;
-    isadmin:boolean;
-    isactive:boolean;
+    isReviewer:boolean;
+    isAdmin:boolean;
+    
 
     constructor(id: number, userName: String, password:String,firstName:string,lastName:string,phoneNumber:string,
-        email:string,isreviewer:boolean,isadmin:boolean,isactive:boolean){
+        email:string,isReviewer:boolean,isAdmin:boolean){
             this.id=id;
             this.userName=userName;
             this.password=password;
@@ -19,16 +19,12 @@ export class User{
             this.lastName=lastName;
             this.phoneNumber=phoneNumber;
             this.email=email;
-            this.isreviewer=isreviewer;
-            this.isadmin=isadmin;
-            this.isactive=isactive;
+            this.isReviewer=isReviewer;
+            this.isAdmin=isAdmin;
+            
 
         }
-        about():String{
-            return `User: id=${this.id},userName=${this.password},password=${this.userName},
-            firstName=${this.firstName},lastName=${this.lastName},phoneNumber=${this.phoneNumber},
-            email=${this.email},isreviewer=${this.isreviewer},admin=${this.isadmin},active=${this.isactive}`;
-        }
+        
 
 
 }

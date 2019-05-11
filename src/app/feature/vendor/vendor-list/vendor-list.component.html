@@ -19,7 +19,7 @@
     <th class="table-secondary">Approved</th>
     <th class="table-secondary">Action</th>
   </tr>
-  <tr *ngFor='let vendor of vendors'>
+  <tr *ngFor='let vendor of vendors | sort:sortCriteria:sortOrder'>
     <td>{{vendor.id}}</td>
     <td>{{vendor.code}}</td>
     <td>{{vendor.name}}</td>

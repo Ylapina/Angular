@@ -11,27 +11,44 @@ const url: string = 'http://localhost:8080/purchase-requests/';
 })
 export class PurchaseRequestService {
 
-  list(): Observable <JsonResponse> {
-    return this.http.get(url) as Observable<JsonResponse>;
-  }
+  
 
-  create(purchaseRequest: PurchaseRequest): Observable<any> {
-    console.log("purchaseRequestsvc.create...");
-    return this.http.post(url, purchaseRequest) as Observable<any>;
+    list(): Observable<JsonResponse> {
+      return this.http.get(url) as Observable<JsonResponse>;
+    }
+  
+    listForReview(id: string): Observable<JsonResponse> {
+      return this.http.get(url + 'list-review/' + id) as Observable<JsonResponse>;
+    }
+  
+    create(pr: PurchaseRequest): Observable<JsonResponse> {
+      return this.http.post(url + 'submit-new', pr) as Observable<JsonResponse>;
+    }
+  
+    submitReview(pr: PurchaseRequest): Observable<JsonResponse> {
+      return this.http.post(url + 'submit-review', pr) as Observable<JsonResponse>;
+    }
+  
+    approve(pr: PurchaseRequest): Observable<JsonResponse> {
+      return this.http.post(url + 'approve', pr) as Observable<JsonResponse>;
+    }
+  
+    reject(pr: PurchaseRequest): Observable<JsonResponse> {
+      return this.http.post(url + 'reject', pr) as Observable<JsonResponse>;
+    }
+  
+    edit(pr: PurchaseRequest): Observable<JsonResponse> {
+      return this.http.put(url, pr) as Observable<JsonResponse>;
+    }
+  
+    get(id: string): Observable<JsonResponse> {
+      return this.http.get(url + id) as Observable<JsonResponse>;
+    }
+  
+    delete(id: number): Observable<JsonResponse> {
+      return this.http.delete(url + id) as Observable<JsonResponse>;
+    }
+  
+    constructor(private http: HttpClient) { }
   }
-
-  get(id: string): Observable<JsonResponse> {
-    console.log("purchaseRequestsvc.get..  id="+id);
-    return this.http.get(url+id) as Observable<JsonResponse>;
-  }
-
-  edit(purchaseRequest: PurchaseRequest): Observable<any> {
-    return this.http.put(url, purchaseRequest) as Observable<any>;
-  }
-
-  delete(id: number): Observable<JsonResponse> {
-    return this.http.delete(url+id) as Observable<JsonResponse>;
-  }
-
-  constructor(private http: HttpClient) { }
-}
+  

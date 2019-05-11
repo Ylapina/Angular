@@ -10,18 +10,18 @@
 <p *ngIf='!purchaserequests'>Loading ...</p>
 <table class="table table-sm" *ngIf='purchaserequests'>
   <tr>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Id')"><u>Id</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('User')"><u>User Name</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Description')"><u>Description</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Justification')"><u>Justification</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('DateNeeded')"><u>Date Needed</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('DeliveryMode')"><u>Delivery Mode</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Status')"><u>Status</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Total')"><u>Total</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('SubmittedDate')"><u>Submitted Date</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('ReasonForRejection')"><u>Reason For Rejection</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('Id')"><u>Id</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('User')"><u>User Name</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('Description')"><u>Description</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('Justification')"><u>Justification</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('DateNeeded')"><u>Date Needed</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('DeliveryMode')"><u>Delivery Mode</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('Status')"><u>Status</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('Total')"><u>Total</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('SubmittedDate')"><u>Submitted Date</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('ReasonForRejection')"><u>Reason For Rejection</u></a></th>
   </tr>
-  <tr *ngFor='let purchaserequest of purchaserequests'>
+  <tr *ngFor='let purchaserequest of purchaserequests | sort:sortCriteria:sortOrder'>
     <td>{{purchaserequest.id}}</td>
     <td>{{purchaserequest.user.userName}}</td>
     <td>{{purchaserequest.description}}</td>
@@ -32,10 +32,12 @@
     <td>{{purchaserequest.total}}</td>
     <td>{{purchaserequest.submittedDate}}</td>
     <td>{{purchaserequest.reasonForRejection}}</td>
+
     <td class='actions'>
+    
       <a routerLink='/purchaserequest/detail/{{purchaserequest.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
       <a routerLink='/purchaserequest/edit/{{purchaserequest.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
-      <a routerLink='/purchaserequest/line items/{{purchaserequest.id}}'><img src='assets/lines.png' width='20' height='20' title='Edit'></a>
+      <a routerLink='/purchaserequest/lineitems/{{purchaserequest.id}}'><img src='assets/lines.png' width='20' height='20' title=Lines></a>
     </td>
   </tr> 
 </table>

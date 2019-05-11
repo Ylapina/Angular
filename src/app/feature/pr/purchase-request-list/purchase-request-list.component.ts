@@ -13,7 +13,8 @@ export class PurchaseRequestListComponent implements OnInit {
   jr: JsonResponse;
   purchaserequests: PurchaseRequest[];
   title: string = "Purchase Request List";
-
+  sortCriteria: string="description";
+  sortOrder:string="asc";//or anth else for
   constructor(private purchaseRequestSvc: PurchaseRequestService) { }
 
   ngOnInit() {
@@ -22,6 +23,14 @@ export class PurchaseRequestListComponent implements OnInit {
         this.purchaserequests = this.jr.data as PurchaseRequest[];
         console.log(this.purchaserequests);
       });
+  }
+  sortBy(column: string): void {
+    if(this.sortCriteria === column) {
+      this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortCriteria = column;
+      this.sortOrder = 'asc';
+    }
   }
 
 }

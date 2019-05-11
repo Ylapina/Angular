@@ -1,0 +1,30 @@
+<app-menu></app-menu>
+<div class='component-content'>
+  <div class='lefthalf'>
+      <span class='component-title'>[{{title}}]</span>
+    </div>
+  </div>
+  <p *ngIf='!purchaserequests'>Loading ...</p>
+  <table class="table table-sm" *ngIf='purchaserequests'>
+    <tr>
+      <th class="table-secondary font-weight-bold">Id</th>
+      <th class="table-secondary font-weight-bold">UserName</th>
+      <th class="table-secondary font-weight-bold">Description</th>
+      <th class="table-secondary font-weight-bold">Status</th>
+      <th class="table-secondary font-weight-bold">Total</th>
+      <th class="table-secondary font-weight-bold">Action</th>
+    </tr>
+    <tr *ngFor='let purchaserequest of purchaserequests'>
+      <td>{{ purchaserequest.id }}</td>
+      <td>{{ purchaserequest.user.userName }}</td>
+      <td>{{ purchaserequest.description }}</td>
+      <td>{{ purchaserequest.status }}</td>
+      <td>{{purchaserequest.total}}</td>
+      <td class='actions'>
+        <a routerLink='/purchaserequest/approve/{{purchaserequest.id}}'><img src='assets/review.png' width='20'
+            height='20' title='Review'></a>
+  
+    </td>
+     </tr>
+  </table>
+

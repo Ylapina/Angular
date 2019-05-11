@@ -21,6 +21,13 @@ import { PurchaseRequestDetailComponent } from './feature/pr/purchase-request-de
 import { PurchaseRequestCreateComponent } from './feature/pr/purchase-request-create/purchase-request-create.component';
 import { PurchaseRequestListComponent } from './feature/pr/purchase-request-list/purchase-request-list.component';
 import { PurchaseRequestEditComponent } from './feature/pr/purchase-request-edit/purchase-request-edit.component';
+import { PurchaseRequestReviewComponent} from 'src/app/feature/pr/purchase-request-review/purchase-request-review.component';
+import { PurchaseRequestApproveComponent} from 'src/app/feature/pr/purchase-request-approve/purchase-request-approve.component';
+
+import {PrliLinesComponent} from './feature/prli/prli-lines/prli-lines.component';
+import {PrliEditComponent} from 'src/app/feature/prli/prli-edit/prli-edit.component';
+import { PrliCreateComponent } from "./feature/prli/prli-create/prli-create.component";
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/user/list', pathMatch: 'full' },
@@ -49,6 +56,14 @@ const routes: Routes = [
   { path:'purchaserequest/edit/:id', component: PurchaseRequestEditComponent},
   { path:'purchaserequest/detail/:id', component: PurchaseRequestDetailComponent},
   { path:'purchaserequest/remove/:id', component: PurchaseRequestDetailComponent},
+
+  { path: 'purchase-request/lines/:id', component: PrliLinesComponent },
+  { path: 'purchaserequest/lineitems/:id', component: PrliLinesComponent },
+  { path: 'purchaserequest/review', component: PurchaseRequestReviewComponent },
+  { path: 'purchaserequest/approve/:id', component: PurchaseRequestApproveComponent },
+  { path: 'prli/edit/:id', component: PrliEditComponent },
+  { path: "prli/create/:id", component: PrliCreateComponent},
+  
   
   { path: '**', component: UserListComponent }
 
